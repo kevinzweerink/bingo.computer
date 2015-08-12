@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing Bingo</title>
+	<link href='style.css' rel='stylesheet'>
+</head>
+<body>
+
+	<div class='board'>
+
+	</div>
+
+	<div class='winner'>
+		<h1>Bingo!</h1>
+	</div>
+
+</body>
+<script src='bingo.js'></script>
+<script>
+	var squares = decodeURI(window.location.hash.substr(1)).split(',');
+
+	var selector = '.board';
+	var bingo = new Bingo(squares, selector);
+</script>
+</html>

@@ -1,0 +1,130 @@
+@import url(http://a1.nyt.com/fonts/css/fonts.css);
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+	font-family: franklin-normal-700;
+	font-weight: 700;
+	padding: 0;
+	margin: 0;
+}
+
+.board-meta {
+	max-width: 80vh;
+	width: 80%;
+	margin: auto;
+	display: none;
+}
+
+.board-labels {
+	padding: 0;
+	margin: 0;
+}
+
+.board-labels li {
+	display: block;
+	width: 20%;
+	float: left;
+	text-align: center;
+	padding: 3rem 0;
+	color: #E04C2B;
+}
+
+.board {
+	width: 100vw;
+	height: 100vh;
+	margin: auto;
+	overflow: hidden;
+	border-top: 2px solid #e2e2e2;
+	border-right: 2px solid #e2e2e2;
+}
+
+.winner {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #E04C2B;
+	color: #FFF;
+	text-align: center;
+	width: 20rem;
+	height: 20rem;
+	border-radius: 10rem;
+	mix-blend-mode: multiply;
+	pointer-events: none;
+}
+
+.winner h1 {
+	padding: 0;
+	margin: 0;
+	line-height: 1;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.winner.active {
+	display: block;
+}
+
+.bingo-board-tile {
+	display: block;
+	width: 20%;
+	height: 20vh;
+	float: left;
+	text-align: center;
+	border-left: 2px solid #e2e2e2;
+	border-bottom: 2px solid #e2e2e2;
+}
+
+.bingo-board-tile.free {
+	background: url('violator.svg') no-repeat center center;
+}
+
+.bingo-board-tile.free .bingo-board-label {
+	transform-origin: -20% -20%;
+	transform: rotate(-15deg) translate(-3%, 1%);
+	color: #FFF;
+}
+
+.bingo-board-tile:not(.free):hover {
+	background: #f0f8fc;
+}
+
+.bingo-board-label {
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	display: block;
+	padding: 2rem;
+	position: relative;
+	top: 50%;
+	cursor: pointer;
+}
+
+input[type=checkbox]:checked ~ .bingo-board-label::after {
+	content: '';
+	display: block;
+	width: 5rem;
+	height: 5rem;
+	background: #E04C2B;
+	position: absolute;
+	top: calc(50% - 2.5rem);
+	left: calc(50% - 2.5rem);
+	z-index: -1;
+	border-radius: 50%;
+}
+
+.bingo-board-tile.free input[type=checkbox]:checked ~ .bingo-board-label::after {
+	display: none;
+}
+
+.bingo-board-tile input {
+	position: absolute;
+	top: -30px;
+	left: 30px;
+}
